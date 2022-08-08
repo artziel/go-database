@@ -1,4 +1,4 @@
-module github.com/artzil/go-database
+module github.com/artziel/go-database
 
 go 1.19
 
