@@ -45,7 +45,10 @@ func OpenMySql(cnf MySqlSettings) (*sql.DB, error) {
 		cnf.AutoCommit,
 		cnf.MaxAllowedPacket,
 	)
-
+	if cnf.Location != "" {
+		dsn = dsn + "&loc=" + strings.Replace(db.Location, "/", `%2F`, 1)
+	}
+	
 	db, err := sql.Open("mysql", dsn)
 	if err != nil {
 		return nil, err
