@@ -2,6 +2,7 @@ package Database
 
 import (
 	"database/sql"
+	"strings"
 	"fmt"
 	"sync"
 
@@ -46,7 +47,7 @@ func OpenMySql(cnf MySqlSettings) (*sql.DB, error) {
 		cnf.MaxAllowedPacket,
 	)
 	if cnf.Location != "" {
-		dsn = dsn + "&loc=" + strings.Replace(db.Location, "/", `%2F`, 1)
+		dsn = dsn + "&loc=" + strings.Replace(cnf.Location, "/", `%2F`, 1)
 	}
 	
 	db, err := sql.Open("mysql", dsn)
