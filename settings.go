@@ -12,6 +12,7 @@ type MySqlSettings struct {
 	ConnMaxLifetime  time.Duration
 	MaxOpenConns     int
 	MaxIdleConns     int
+	Location         string
 	AutoCommit       bool
 }
 
